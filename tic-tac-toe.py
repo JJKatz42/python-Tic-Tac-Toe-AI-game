@@ -34,7 +34,7 @@ def main():
     elif game_board.check_win_for_player(game_board.other_player):
         print(f"congrats player {game_board.other_player.marker} won")
     else:
-        print("It was a tie you both loose!")
+        print("It was a tie you both loose.")
 
 
 if __name__ == "__main__":
