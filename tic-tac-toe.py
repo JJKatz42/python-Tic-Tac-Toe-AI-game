@@ -3,16 +3,6 @@ import player as base_player
 import rand_player as rand_player
 import AI_player as AI_player
 
-
-
-# choice = input("would you like to play against human or CPU? \n ==>")
-    # player1 = player.Player(marker="X")
-    # if choice == "human":
-    #     player2 = player.Player(marker="O")
-    # elif choice == "CPU":
-    #     player2 = AI_player.AIPlayer(marker="O", max_depth=9)  
-    # player1 = AI_player.AIPlayer(marker="X", max_depth=2)
-    # player2 = AI_player.AIPlayer(marker="O", max_depth=9)
         
 def construct_player_for(marker):
     choice = base_player.Player.get_choice(marker)
@@ -27,7 +17,6 @@ def construct_player_for(marker):
 
 
 def main():
-    
     player1 = construct_player_for("X")
     player2 = construct_player_for("O")
     game_board = board.Board(current_player=player1, other_player=player2)
@@ -46,10 +35,6 @@ def main():
         print(f"congrats player {game_board.other_player.marker} won")
     else:
         print("It was a tie you both loose")
-
-
-
-
 
 
 if __name__ == "__main__":
