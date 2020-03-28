@@ -27,7 +27,7 @@ def main():
         game_board.apply_move(move, game_board.current_player)
         game_board.turn_player()
     game_board.turn_player()
-    print("=======================")
+    print("========================")
     game_board.draw_board()
     if game_board.check_win_for_player(game_board.current_player):
         print(f"congrats player {game_board.current_player.marker} won")
