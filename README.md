@@ -22,6 +22,6 @@ There are two main classes in the basic game
    (here's where it gets intresting)
    ### In the AIPlayer
    - there is a minimax function
-    - the maximize funtion is called to find the best move possible
-    - to find the best move possible the AI player has to calculate what the opponent will do and how to counteract it
-    - 
+   - the maximize funtion is called to find the best move possible
+   - to find the best move possible the AI player has to calculate what the opponent will do and how to counteract it
+   - that is where the minimize() function comes in, which finds the move the opponent will make to minimize the AI players next move
