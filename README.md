@@ -9,4 +9,5 @@ There are two main classes in the basic game
  The PLayer class has two sub classes
   - AIPlayer
   - RandPlayer
+  
   _These are additional add ons, if they are not wanted there are some print statements that need to be changed_
