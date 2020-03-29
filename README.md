@@ -1,1 +1,3 @@
-# python-Tic-Tac-Toe-AI-game
+# Tic-Tac-Toe-AI.py
+
+## Setup
