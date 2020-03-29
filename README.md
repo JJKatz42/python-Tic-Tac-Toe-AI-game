@@ -19,6 +19,7 @@ There are two main classes in the basic game
    ### In the normal Player
    - there is a human player and there is an input prompt to ask for the move
    - there is a is_valid() funtion which checks if the input was valid (1-9 + not a taken move)
+   
    (here's where it gets intresting)
    ### In the AIPlayer
    - there is a minimax function
