@@ -7,22 +7,22 @@ class Board:
   ---+-----+---
   {6}  |  {7}  |  {8}"""
 
-    board_list = [" ", " ", " ", " ", " ", " "," ", " ", " "]
-    moves_made = ""
     win_combinations=[[0,1,2], [0,3,6], [0,4,8], [1,4,7], [2,5,8], [3,4,5], [6,7,8], [2,4,6]]
     current_player = None
     other_player = None
-
+    instruction_board = "\n1  |  2  |  3\n---+-----+---\n4  |  5  |  6\n---+-----+---\n7  |  8  |  9"
 
     
     def __init__(self, current_player, other_player):
+        self.board_list = [" ", " ", " ", " ", " ", " "," ", " ", " "]
         self.current_player = current_player
         self.other_player = other_player
+        self.moves_made = ""
 
 
     def __repr__(self):
         ''' returns a string representation of a Board '''
-        return "\n1  |  2  |  3\n---+-----+---\n4  |  5  |  6\n---+-----+---\n7  |  8  |  9"
+        return self.instruction_board
 
 
     def draw_board(self):
