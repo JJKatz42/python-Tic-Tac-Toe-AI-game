@@ -39,4 +39,5 @@ There are two main classes in the basic game
    - That is the extent of a random player
 ## Win method
  - At the moment the win method is hardcoded, as there are a list of lists that have all the possible win combinations
+ - the way the win is checked, is by checking if there is only one type of marker (X or O) in all three of the spaces of one of the possible win combinations  
 
