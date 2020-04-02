@@ -1,4 +1,3 @@
-
 class Board:
     board = """
   {0}  |  {1}  |  {2}
@@ -7,35 +6,28 @@ class Board:
   ---+-----+---
   {6}  |  {7}  |  {8}"""
 
-    win_combinations=[[0,1,2], [0,3,6], [0,4,8], [1,4,7], [2,5,8], [3,4,5], [6,7,8], [2,4,6]]
+    win_combinations = [[0, 1, 2], [0, 3, 6], [0, 4, 8], [1, 4, 7], [2, 5, 8], [3, 4, 5], [6, 7, 8], [2, 4, 6]]
     current_player = None
     other_player = None
     instruction_board = "\n1  |  2  |  3\n---+-----+---\n4  |  5  |  6\n---+-----+---\n7  |  8  |  9"
 
-    
     def __init__(self, current_player, other_player):
-        self.board_list = [" ", " ", " ", " ", " ", " "," ", " ", " "]
+        self.board_list = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
         self.current_player = current_player
         self.other_player = other_player
         self.moves_made = ""
-
 
     def __repr__(self):
         ''' returns a string representation of a Board '''
         return self.instruction_board
 
-
     def draw_board(self):
         print(self.board.format(*self.board_list))
 
-
-    
-    
     def turn_player(self):
         temp = self.current_player
         self.current_player = self.other_player
         self.other_player = temp
-
 
     def check_move(self, move):
         """"checks if the move made by the player is valid
@@ -51,7 +43,6 @@ class Board:
             return False
         return True
 
-
     def apply_move(self, move, player):
         """updates the board_list with the move made by the player
         
@@ -62,43 +53,38 @@ class Board:
             returns: 
                 bool: true, if there was a succesful move made. false, else
         """
-        if self.check_move(move=move) == True:
-            self.board_list[move] = player.marker #changes value in the board to player which is either X or O
-            self.moves_made += str(move)#keeps track of all moves
+        if self.check_move(move=move):
+            self.board_list[move] = player.marker  # changes value in the board to player which is either X or O
+            self.moves_made += str(move)  # keeps track of all moves
             return True
         else:
             return False
 
-
     def unapply_move(self, move):
         self.board_list[move] = " "
-        self.moves_made=self.moves_made[:-1]
-
+        self.moves_made = self.moves_made[:-1]
 
     def check_win_for_player(self, player):
         for wins in self.win_combinations:
-            if player.marker == self.board_list[wins[0]] == self.board_list[wins[1]] == self.board_list[wins[2]]:#checks for each value in each list is equally to the same thing (X or O)
+            if player.marker == self.board_list[wins[0]] == self.board_list[wins[1]] == self.board_list[wins[2]]:  # checks for each value in each list is equally to the same thing (X or O)
                 return True
         return False
 
-
     def check_for_tie(self):
-        if " " not in self.board_list and self.check_win_for_player(self.current_player) == False: #if there are no spaces and here is new win it has to be a tie
+        if " " not in self.board_list and self.check_win_for_player(self.current_player) == False:
+            # if there are no spaces and here is new win it has to be a tie
             return True
-
 
     def check_game_over(self, player1, player2):
-        if (self.check_win_for_player(player1) or 
-            self.check_win_for_player(player2) or 
-            self.check_for_tie()):
+        if (self.check_win_for_player(player1) or
+                self.check_win_for_player(player2) or
+                self.check_for_tie()):
             return True
-        return False    
-
+        return False
 
     def reset(self):
-        self.board_list = [" ", " ", " ", " ", " ", " "," ", " ", " "]
+        self.board_list = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
         self.moves_made = ""
-
 
     def get_possible_moves(self):
         possible_moves = []
@@ -106,8 +92,3 @@ class Board:
             if self.board_list[i] == " ":
                 possible_moves.append(i)
         return possible_moves
-        
-            
-
-
-        
