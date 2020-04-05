@@ -1,7 +1,6 @@
 import pytest as pytest
 
-import board as board
-import player as player
+from game_logic import board as board, player as player
 
 
 def test_board_initialization():

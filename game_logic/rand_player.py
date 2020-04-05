@@ -1,4 +1,4 @@
-import player
+from game_logic import player
 import random
 
 
