@@ -37,19 +37,21 @@ def test_board_apply_move_positive():
     test_board = board.Board("X", "O")
     test_move = 5
     test_player = player.Player("X")
-    assert test_board.apply_move(test_move, test_player)
+    test_board.current_player = test_player
+    assert test_board.apply_move(test_move)
     assert test_board.board_list[test_move] == test_player.marker
     assert str(test_move) in test_board.moves_made
 
 
 def test_board_apply_move_negative():
-    test_board1 = board.Board("X", "O")
+    test_board = board.Board("X", "O")
     test_move = 4
-    test_board1.moves_made += str(test_move)
+    test_board.moves_made += str(test_move)
     test_player = player.Player("X")
-    assert test_board1.apply_move(test_move, test_player) == False
-    assert test_board1.board_list[test_move] == " "
-    assert str(test_move) in test_board1.moves_made
+    test_board.current_player = test_player
+    assert test_board.apply_move(test_move) == False
+    assert test_board.board_list[test_move] == " "
+    assert str(test_move) in test_board.moves_made
 
 
 def test_board_unapply_move():
