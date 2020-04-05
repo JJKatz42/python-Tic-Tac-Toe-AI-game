@@ -7,6 +7,8 @@ def test_board_initialization():
     test_board = board.Board("X", "O")
     assert test_board.current_player == "X"
     assert test_board.other_player == "O"
+    assert test_board.board_list == [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+    assert test_board.moves_made == ""
 
 
 def test_board_repr():
@@ -98,6 +100,19 @@ def test_board_get_possible_moves():
     test_board = board.Board("X", "O")
     test_board.board_list = ["X", " ", " ", " ", " ", " ", "X", " ", "O"]
     assert test_board.get_possible_moves() == [1, 2, 3, 4, 5, 7]
+
+
+def test_board_check_empty_positive():
+    test_board = board.Board("X", "O")
+    test_board.board_list = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+    assert test_board.check_empty()
+
+
+def test_board_check_empty_negative():
+    test_board = board.Board("X", "O")
+    test_board.board_list = [" ", " ", "X", " ", " ", " ", "X", " ", " "]
+    assert not test_board.check_empty()
+
 
 
 

@@ -32,7 +32,7 @@ class Player:
         choice=""
         choice_made = False
         while choice_made == False:
-            choice = input(f"what would you like player {marker} to play as human, CPU, or random? \n ==> ")
+            choice = input(f"what would you like player {marker} to play as: human, CPU, or random? \n ==> ")
             choice_made = Player.validate_choice(choice)
         return choice
 
