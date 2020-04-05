@@ -43,7 +43,7 @@ class Board:
             return False
         return True
 
-    def apply_move(self, move, player):
+    def apply_move(self, move):
         """updates the board_list with the move made by the player
         
             args:
@@ -54,7 +54,7 @@ class Board:
                 bool: true, if there was a succesful move made. false, else
         """
         if self.check_move(move=move):
-            self.board_list[move] = player.marker  # changes value in the board to player which is either X or O
+            self.board_list[move] = self.current_player.marker  # changes value in the board to player which is either X or O
             self.moves_made += str(move)  # keeps track of all moves
             return True
         else:
@@ -75,9 +75,9 @@ class Board:
             # if there are no spaces and here is new win it has to be a tie
             return True
 
-    def check_game_over(self, player1, player2):
-        if (self.check_win_for_player(player1) or
-                self.check_win_for_player(player2) or
+    def check_game_over(self):
+        if (self.check_win_for_player(self.current_player) or
+                self.check_win_for_player(self.other_player) or
                 self.check_for_tie()):
             return True
         return False
@@ -92,3 +92,8 @@ class Board:
             if self.board_list[i] == " ":
                 possible_moves.append(i)
         return possible_moves
+
+    def check_empty(self):
+        if "X" in self.board_list or "O" in self.board_list:
+            return False
+        return True

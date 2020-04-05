@@ -1,9 +1,6 @@
-import board as board
-import player as base_player
-import rand_player as rand_player
-import AI_player as AI_player
+from game_logic import AI_player as AI_player, board as board, rand_player as rand_player, player as base_player
 
-        
+
 def construct_player_for(marker):
     choice = base_player.Player.get_choice(marker)
     if choice == "human":
@@ -20,11 +17,11 @@ def main():
     player1 = construct_player_for("X")
     player2 = construct_player_for("O")
     game_board = board.Board(current_player=player1, other_player=player2)
-    while game_board.check_game_over(player1=player1, player2=player2) == False:
+    while not game_board.check_game_over():
         print(game_board)
         game_board.draw_board()
         move = game_board.current_player.get_move(board=game_board)
-        game_board.apply_move(move, game_board.current_player)
+        game_board.apply_move(move)
         game_board.turn_player()
     game_board.turn_player()
     print("=========================")
