@@ -43,7 +43,7 @@
                     {% for j in range(3) %}
                         <td>
                             {% if game_board.board_list[(3*i)+j] != " " %}
-                                {{ game[(3*i)+j] }}
+                                {{ game_board.board_list[(3*i)+j] }}
                             {% else %}
                                 <a href="{{ url_for('play', row=i, col=j) }}">Play {{turn}} here.</a>
                             {% endif %}
