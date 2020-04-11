@@ -1,0 +1,72 @@
+<html>
+<script type="text/javascript">
+    function check_CPU1(that) {
+        if (that.value == "CPU") {
+            document.getElementById("CPU1").style.display = "block";
+        } else {
+            document.getElementById("CPU1").style.display = "none";
+        }
+    }
+    function check_CPU2(that) {
+        if (that.value == "CPU") {
+            document.getElementById("CPU2").style.display = "block";
+        } else {
+            document.getElementById("CPU2").style.display = "none";
+        }
+    }
+
+
+
+
+
+</script>
+<body>
+
+<form action="http://localhost:5000/result" method="POST">
+
+    <select id="player1_type" name="player1_type" onchange="check_CPU1(this);">
+        <option selected disabled>Choose player1 type</option>
+        <option value="human">human</option>
+        <option value="CPU">CPU</option>
+        <option value="random">random</option>
+    </select>
+    <select id="player2_type" name="player2_type" onchange="check_CPU2(this);">
+        <option selected disabled>Choose player2 type</option>
+        <option value="human">human</option>
+        <option value="CPU">CPU</option>
+        <option value="random">random</option>
+    </select>
+    <div id="CPU1" style="display: none;">
+        <label for="CPU_lookahead1">what would you like the lookahead of the CPU1 to be?</label>
+        <select id="CPU_lookahead1" name="CPU_lookahead1">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select><br/>
+    </div>
+    <div id="CPU2" style="display: none;">
+        <label for="CPU_lookahead2">what would you like the lookahead of the CPU2 to be?</label>
+        <select id="CPU_lookahead2" name="CPU_lookahead2">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select><br/>
+    </div>
+    <p><input type="submit" value="submit"/></p>
+
+</form>
+
+</body>
+</html>
