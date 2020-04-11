@@ -37,7 +37,7 @@ def result_handler():
     elif result["player1_type"] == "CPU":
         player1 = AIPlayer(marker="X", max_depth=int(result["CPU_lookahead1"]))
     elif result["player1_type"] == "random":
-        player1 = AIPlayer(marker="X")
+        player1 = RandomPlayer(marker="X")
     if result["player2_type"] == "human":
         player2 = Player(marker="O")
     elif result["player2_type"] == "CPU":
@@ -60,7 +60,10 @@ def game_handler():
         game_board.turn_player()
         print(f"player {game_board.current_player.marker} has won")
         session["winner_found"] = True
-
+    elif isinstance(game_board.current_player, AIPlayer) or isinstance(game_board.current_player, RandomPlayer):
+        game_board.apply_move(game_board.current_player.get_move(game_board))
+        game_board.turn_player()
+        game_handler()
     return render_template("index.html",
                            game_board=game_board,
                            turn=game_board.current_player.marker,
@@ -83,4 +86,4 @@ def reset():
     session.pop("game_board", None)
     session.pop("tie", None)
     session.pop("winner_found", None)
-    return redirect(url_for("game_handler"))
+    return redirect(url_for("start_game_handler"))
