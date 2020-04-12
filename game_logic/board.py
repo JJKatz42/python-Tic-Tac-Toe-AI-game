@@ -71,7 +71,7 @@ class Board:
         return False
 
     def check_for_tie(self):
-        if " " not in self.board_list and self.check_win_for_player(self.current_player) == False:
+        if " " not in self.board_list and not self.check_win_for_player(self.current_player) and not self.check_win_for_player(self.other_player):
             # if there are no spaces and here is new win it has to be a tie
             return True
 
